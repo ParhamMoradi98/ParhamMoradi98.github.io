@@ -9,7 +9,7 @@ body {
 
 /* Header Styles */
 header {
-    background: #0056b3; /* Nice blue for the header */
+    background: #0056b3;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
@@ -53,7 +53,7 @@ aside.profile img {
 }
 
 aside.profile h2 {
-    color: #0056b3; /* Blue font for profile title */
+    color: #0056b3;
     margin: 0.5rem 0;
 }
 
@@ -93,6 +93,25 @@ main section h2 {
 
 main section p, main section ul {
     margin-left: 1rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    margin: 0.5rem 0;
+}
+
+.skills-list li a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skills-list li a:hover {
+    text-decoration: underline;
 }
 
 /* Footer Styles */
