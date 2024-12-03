@@ -14,16 +14,17 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 450px;
     background: #2c3e50;
     color: #ecf0f1;
     padding: 20px;
     text-align: center;
+    position: relative;
 }
 
 .sidebar .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-bottom: 10px;
     border: 2px solid #ecf0f1;
@@ -56,6 +57,7 @@ body {
 .sidebar .nav-links {
     margin-top: 20px;
     text-align: left;
+    position: relative;
 }
 
 .sidebar .nav-links a {
@@ -63,11 +65,78 @@ body {
     color: #ecf0f1;
     text-decoration: none;
     padding: 10px 0;
+    position: relative;
 }
 
 .sidebar .nav-links a:hover {
     background: #34495e;
     padding-left: 10px;
+}
+
+/* Menu and Submenu Styles */
+.menu {
+    position: relative;
+}
+
+.menu .submenu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 100%; /* Position to the right of the main menu */
+    top: 0;
+    background: #34495e;
+    width: 200px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu .submenu li {
+    margin: 0;
+}
+
+.menu .submenu a {
+    color: #ecf0f1;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.menu .submenu a:hover {
+    background: #1abc9c;
+}
+
+/* Submenu Details Styles */
+.menu .submenu-details {
+    display: none;
+    position: absolute;
+    left: 100%; /* Position to the right of the submenu */
+    top: 0;
+    background: #2c3e50;
+    width: 200px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu .submenu-details a {
+    color: #ecf0f1;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.menu .submenu-details a:hover {
+    background: #1abc9c;
+}
+
+/* Hover Functionality */
+.menu:hover .submenu {
+    display: block;
+}
+
+.submenu li:hover .submenu-details {
+    display: block;
 }
 
 /* Main Content */
@@ -98,4 +167,33 @@ footer {
     background: #34495e;
     color: #ecf0f1;
     font-size: 0.8rem;
+}
+/* CV Section */
+.cv-section {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.cv-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ecf0f1;
+}
+
+.cv-link {
+    display: inline-block;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #1abc9c;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cv-link:hover {
+    background: #1abc9c;
+    color: #ecf0f1;
 }
