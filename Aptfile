@@ -1,0 +1,4 @@
+rustc
+cargo
+libssl-dev
+libudev-dev
