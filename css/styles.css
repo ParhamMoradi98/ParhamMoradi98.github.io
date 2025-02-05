@@ -197,3 +197,18 @@ footer {
     background: #1abc9c;
     color: #ecf0f1;
 }
+/* Inside styles.css */
+#chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: white;
+  }
+  #chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }

@@ -8,6 +8,11 @@
     <script src="js/scripts.js"></script>
 </head>
 <body>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input id="user-input" type="text" placeholder="Ask about my background...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
     <div class="container">
         <aside class="sidebar">
             <img src="github_pic.jpg" alt="Parham Moradi" class="profile-pic">
@@ -68,7 +73,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="menu">
+                <!-- <div class="menu">
                     <a href="#experiences">Experiences</a>
                     <ul class="submenu">
                         <li>
@@ -86,7 +91,7 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="menu">
                     <a href="#projects">Projects</a>
                     <ul class="submenu">
@@ -171,7 +176,7 @@
             
             
 
-            <section id="experiences">
+            <!-- <section id="experiences">
                 <h2>Experiences</h2>
                 <ul>
                     <li id="docker-kubernetes"><strong>Building a Scalable Machine Learning API:</strong> 
@@ -179,12 +184,12 @@
                     <li id="tensorflow-pytorch"><strong>Rainfall Classification:</strong> 
                         Used TensorFlow and PyTorch for machine learning algorithms achieving 80% accuracy.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section id="projects">
                 <h2>Projects</h2>
                 <ul>
-                    <li><strong>Scalable Machine Learning API:</strong> User-friendly ML API for non-experts to train models and save best-performing models.</li>
+                    <li><strong>Scalable Machine Learning API:</strong> User-friendly Auto ML API for non-experts to train models and save best-performing models.</li>
                     <li><strong>Rainfall Classification:</strong> Analyzed rainfall patterns and achieved over 80% accuracy using five ML algorithms.</li>
                 </ul>
             </section>
