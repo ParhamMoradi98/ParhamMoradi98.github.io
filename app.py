@@ -5,11 +5,20 @@ import faiss
 import numpy as np
 import pickle
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 
+load_dotenv() 
 app = Flask(__name__)
 
 # Enable CORS for the entire Flask app
 CORS(app)
+DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
+
+# Check if the key is loaded correctly
+if not DEEPSEEK_API_KEY:
+    raise ValueError("DEEPSEEK_API_KEY is not set in the environment variables.")
+
 # Load your Faiss index and CV chunks
 index = faiss.read_index('cv_index.index')
 with open('cv_chunks.pkl', 'rb') as f:
@@ -18,7 +27,6 @@ with open('cv_chunks.pkl', 'rb') as f:
 # Initialize the Sentence Transformer model for embedding queries
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-DEEPSEEK_API_KEY = "sk-749fbf313e854f2a92d5397d334c3b14"
 DEEPSEEK_CHAT_ENDPOINT = "https://api.deepseek.com/v1/chat/completions"
 
 def search_vector_db(query_embedding, top_k=3):

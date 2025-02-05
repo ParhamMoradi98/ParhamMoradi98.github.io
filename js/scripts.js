@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Display the question in the chat window
         displayMessage('You', question);
   
-        // Send the question to Flask backend
-        fetch('http://localhost:5000/ask', {
+        // Send the question to Flask API
+        fetch('https://your-flask-app.herokuapp.com/ask', {  // Use your actual backend URL here
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
