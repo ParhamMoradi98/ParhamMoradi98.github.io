@@ -1,78 +1,93 @@
 from flask import Flask, request, jsonify
 import requests
 from sentence_transformers import SentenceTransformer
-import faiss
 import numpy as np
 import pickle
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
-load_dotenv() 
+# Load environment variables (optional—remove if not needed)
+load_dotenv()
+
 app = Flask(__name__)
-
-# Enable CORS for the entire Flask app
 CORS(app)
-DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
 
-# Check if the key is loaded correctly
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 if not DEEPSEEK_API_KEY:
-    raise ValueError("DEEPSEEK_API_KEY is not set in the environment variables.")
+    raise ValueError("DEEPSEEK_API_KEY is not set in environment variables.")
 
-# Load your Faiss index and CV chunks
-index = faiss.read_index('cv_index.index')
-with open('cv_chunks.pkl', 'rb') as f:
-    cv_chunks = pickle.load(f)
+# ------------------------------------------------------------------------------
+# 1) LOAD DATA & MODEL
+# ------------------------------------------------------------------------------
+# We assume 'cv_chunks.pkl' holds both text + embeddings to avoid recomputing them
+with open("cv_chunks.pkl", "rb") as f:
+    cv_data = pickle.load(f)
 
-# Initialize the Sentence Transformer model for embedding queries
-model = SentenceTransformer('all-MiniLM-L6-v2')
+# Separate them into two arrays for convenient searching
+cv_texts = [entry["text"] for entry in cv_data]
+cv_embeddings = np.array([entry["embedding"] for entry in cv_data], dtype=np.float32)
+
+# Use a smaller model than 'all-MiniLM-L6-v2' to reduce size
+model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
 
 DEEPSEEK_CHAT_ENDPOINT = "https://api.deepseek.com/v1/chat/completions"
 
+# ------------------------------------------------------------------------------
+# 2) SEARCH FUNCTION (DOT-PRODUCT SIMILARITY)
+# ------------------------------------------------------------------------------
 def search_vector_db(query_embedding, top_k=3):
     """
-    Searches the vector database (Faiss index) for the most relevant CV chunks 
-    based on the user's query embedding.
-
-    Args:
-        query_embedding (list or np.ndarray): The query embedding (user's question)
-        top_k (int): The number of top results to return
-
+    Simple vector search:
+    - query_embedding: np.array of shape (768,) or similar
+    - top_k: number of relevant chunks to fetch
     Returns:
-        list: The most relevant CV chunks
+       list of top_k CV chunk texts
     """
-    # Ensure the query embedding is a numpy array and of type float32 for Faiss
-    query_embedding = np.array(query_embedding).astype('float32').reshape(1, -1)
-
-    # Perform the similarity search in the Faiss index
-    distances, indices = index.search(query_embedding, top_k)
-
-    # Retrieve the most relevant CV chunks using the indices
-    relevant_chunks = [cv_chunks[i] for i in indices[0]]
+    # Convert to float32 if not already
+    query_vec = query_embedding.astype(np.float32)
     
-    return relevant_chunks
+    # Dot product with all CV embeddings -> higher = more similar
+    scores = np.dot(cv_embeddings, query_vec)  # shape: (num_chunks,)
+    
+    # Grab indices of the top_k scores
+    top_indices = np.argsort(scores)[-top_k:][::-1]
+    
+    # Return the chunk texts that match best
+    return [cv_texts[i] for i in top_indices]
 
-def get_deepseek_embedding(text):
-    # Call DeepSeek's embedding API here to get the embedding for the user's query
-    pass
-
-@app.route('/ask', methods=['POST'])
+# ------------------------------------------------------------------------------
+# 3) FLASK ENDPOINT
+# ------------------------------------------------------------------------------
+@app.route("/ask", methods=["POST"])
 def ask():
-    user_question = request.json['question']
+    user_question = request.json.get("question", "")
     
-    # Step 1: Retrieve relevant CV chunks
+    # 3a) Embed the user's query
     question_embedding = model.encode([user_question])[0]
-    cv_chunks = search_vector_db(question_embedding, top_k=3)
     
-    # Step 2: Generate answer using DeepSeek
-    prompt = f"Answer based on my CV: {cv_chunks}\n\nQuestion: {user_question}"
+    # 3b) Find most relevant CV chunks
+    relevant_chunks = search_vector_db(question_embedding, top_k=3)
+    
+    # 3c) Construct prompt and call DeepSeek
+    prompt = f"Answer based on my CV: {relevant_chunks}\n\nQuestion: {user_question}"
     response = requests.post(
         DEEPSEEK_CHAT_ENDPOINT,
         headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
-        json={"model": "deepseek-chat", "messages": [{"role": "user", "content": prompt}]}
+        json={"model": "deepseek-chat", "messages": [{"role": "user", "content": prompt}]},
+        timeout=30
     )
-    answer = response.json()['choices'][0]['message']['content']
-    return jsonify({"answer": answer})
+    
+    # 3d) Parse DeepSeek's response
+    if response.status_code == 200:
+        result_json = response.json()
+        answer = result_json["choices"][0]["message"]["content"]
+        return jsonify({"answer": answer})
+    else:
+        return jsonify({"error": "Failed to get a response from DeepSeek"}), 500
 
-if __name__ == '__main__':
+# ------------------------------------------------------------------------------
+# 4) APP RUNNER
+# ------------------------------------------------------------------------------
+if __name__ == "__main__":
     app.run(port=5000)
