@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parham Moradi - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="js/scripts.js"></script>
 </head>
 <body>
+    <div class="chat-title">
+        <h2>Ask anything about my background from 
+            <span class="highlighted-text">DeepSeek API chatbot</span>
+        </h2>
+    </div>
+    
     <div id="chat-container">
         <div id="chat-messages"></div>
-        <input id="user-input" type="text" placeholder="Ask about my background...">
-        <button id="send-button" onclick="sendMessage()">Send</button>
-    </div>    
+        <div class="chat-input-container">
+            <input id="user-input" type="text" placeholder="Ask about my background...">
+            <button id="send-button">
+                <i class="fas fa-globe"></i> Send!
+            </button>
+        </div>
+    </div>
+    
     <div class="container">
         <aside class="sidebar">
             <img src="github_pic.jpg" alt="Parham Moradi" class="profile-pic">
