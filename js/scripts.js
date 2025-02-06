@@ -17,49 +17,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const userInput = document.getElementById('user-input');
-    const chatMessages = document.getElementById('chat-messages');
-  
-    // Send a message when the user clicks the 'Send' button
-    document.querySelector("button").addEventListener('click', function() {
-      const question = userInput.value.trim();
-  
-      // If the question is empty, don't send
-      if (question) {
-        // Display the question in the chat window
-        displayMessage('You', question);
-  
-        // Send the question to Flask API
-        fetch('https://your-flask-app.herokuapp.com/ask', {  // Use your actual backend URL here
-          method: 'POST',
+async function sendMessage() {
+  const userInput = document.getElementById("user-input").value;
+
+  if (!userInput.trim()) {
+      alert("Please enter a question.");
+      return;
+  }
+
+  // Clear the input after sending
+  document.getElementById("user-input").value = "";
+
+  // Display the user's message in the chat
+  addMessageToChat("You", userInput);
+
+  try {
+      // Send a POST request to your Heroku app
+      const response = await fetch("https://parhamweb-b1f70f7c7e89.herokuapp.com/ask", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+              "Content-Type": "application/json"
           },
-          body: JSON.stringify({ question: question }),
-        })
-        .then(response => response.json())
-        .then(data => {
-          // Display the answer in the chat window
-          displayMessage('Bot', data.answer);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          displayMessage('Bot', 'Sorry, something went wrong. Please try again.');
-        });
+          body: JSON.stringify({ question: userInput })
+      });
+
+      if (response.ok) {
+          const data = await response.json();
+          addMessageToChat("Bot", data.answer);
+      } else {
+          addMessageToChat("Bot", "Sorry, something went wrong. Please try again.");
       }
-  
-      // Clear the input field
-      userInput.value = '';
-    });
-  
-    // Function to display the messages in the chat window
-    function displayMessage(sender, message) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
-    }
-  });
+  } catch (error) {
+      console.error("Error:", error);
+      addMessageToChat("Bot", "There was an error connecting to the server.");
+  }
+}
+
+function addMessageToChat(sender, message) {
+  const chatMessages = document.getElementById("chat-messages");
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message");
+
+  messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+  chatMessages.appendChild(messageElement);
+
+  // Scroll to the latest message
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
   

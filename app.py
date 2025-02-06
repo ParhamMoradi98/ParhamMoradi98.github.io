@@ -27,7 +27,7 @@ def ask():
     user_question = request.json.get("question", "")
     
     # Create the prompt by including your full CV
-    prompt = f"Given this CV:\n{MY_FULL_CV}\n\nAnswer the question:\n{user_question}"
+    prompt = f"Imagine this is your CV:\n{MY_FULL_CV}\n\nAnswer the question:\n{user_question} Remember to answer with first person pronouns (I, me, my). not second person (you, your)."
 
     response = requests.post(
         DEEPSEEK_CHAT_ENDPOINT,
