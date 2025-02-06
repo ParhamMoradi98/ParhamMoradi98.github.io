@@ -4,4 +4,4 @@ numpy==1.26.4
 python-dotenv==1.0.1
 Requests==2.32.3
 sentence_transformers==3.4.1
-torch==2.6.0+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.6.0 #+cpu --extra-index-url https://download.pytorch.org/whl/cpu
