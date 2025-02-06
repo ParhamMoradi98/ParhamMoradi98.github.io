@@ -7,4 +7,4 @@ sentence_transformers==3.4.1
 
 # CPU-only PyTorch build (2.0.1) 
 # The '-f' line tells pip where to find the CPU wheels.
-torch==1.11.0+cpu -f https://download.pytorch.org/whl/cpu
+torch==1.13.0+cpu -f https://download.pytorch.org/whl/cpu
