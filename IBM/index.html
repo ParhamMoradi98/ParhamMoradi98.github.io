@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parham Moradi - Rainfall Classification Project</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../thesis/thesis_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="../js/scripts.js"></script>
+</head>
+<body>
+  <div class="chat-title">
+    <h2>Ask anything about my background from 
+      <span class="highlighted-text">DeepSeek API chatbot</span>
+    </h2>
+  </div>
+  
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <div class="chat-input-container">
+      <input id="user-input" type="text" placeholder="Ask about my background...">
+      <button id="send-button">
+        <i class="fas fa-globe"></i> Send!
+      </button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <aside class="sidebar">
+      <a href="../index.html">
+        <img src="../github_pic.jpg" alt="Parham Moradi" class="profile-pic">
+      </a>
+      <a href="../index.html">
+        <h2>Parham Moradi</h2>
+      </a>
+      <ul class="social-links">
+        <li><a href="mailto:parham.moradi@uwaterloo.ca">Email</a></li>
+        <li><a href="tel:+16475133618">Phone</a></li>
+        <li><a href="https://www.linkedin.com/in/parham-moradi-132443156/">LinkedIn</a></li>
+        <li><a href="https://github.com/ParhamMoradi98">GitHub</a></li>
+      </ul>
+      <div class="cv-section">
+        <a href="../Parham_CV.pdf" target="_blank" class="cv-link">Summarized CV</a>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html#about-me">About Me</a>
+        <div class="menu">
+          <a href="../index.html#skills">Skills</a>
+          <ul class="submenu">
+            <li><a href="../index.html#programming-frameworks">Programming & Frameworks</a></li>
+            <li><a href="../index.html#data-ai-techniques">Data & AI Techniques</a></li>
+            <li><a href="../index.html#tools-technologies">Tools & Technologies</a></li>
+            <li><a href="../index.html#operating-systems">Operating Systems and Subsystems</a></li>
+          </ul>
+        </div>
+        <div class="menu">
+          <a href="../index.html#projects">Projects</a>
+          <ul class="submenu">
+            <li><a href="index.html"><strong>Rainfall Classification Project</strong></a></li>
+            <li><a href="../index.html#scalable-ml-api">Scalable ML API</a></li>
+            <li><a href="../index.html#rainfall-classification">Rainfall Classification</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+    
+    <main>
+      <section id="project-summary">
+        <h2>Rainfall Classification and Accuracy Analysis</h2>
+        <p>
+          <strong>Project Description:</strong><br>
+          Rainfall Classification and Accuracy Analysis (IBM Course)
+          <a href="https://www.credly.com/badges/eebcc235-100a-49db-8dd5-a886bb4c4583" class="info-button">
+            <i class="fas fa-hand-point-right"></i>
+            <span>View the Certificate</span>
+          </a>
+          <br>
+          • Analyzed patterns in a rainfall dataset and visualized key features.<br>
+          • Implemented five machine learning algorithms—including Linear and Logistic Regression, K-Nearest Neighbors, Decision Trees, and SVM—each achieving over 80% accuracy.
+        </p>
+      </section>
+      
+      <section id="project-results">
+        <h2>Results</h2>
+        <table border="1">
+          <tr>
+            <th>Model</th>
+            <th>Accuracy</th>
+            <th>Jaccard Index</th>
+            <th>F1-Score</th>
+            <th>LogLoss</th>
+          </tr>
+          <tr>
+            <td>KNN</td>
+            <td>0.818321</td>
+            <td>0.425121</td>
+            <td>0.596610</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Decision Tree</td>
+            <td>0.754198</td>
+            <td>0.399254</td>
+            <td>0.570667</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Logistic Regression</td>
+            <td>0.836641</td>
+            <td>0.509174</td>
+            <td>0.674772</td>
+            <td>0.38082</td>
+          </tr>
+          <tr>
+            <td>SVM</td>
+            <td>0.838168</td>
+            <td>0.506977</td>
+            <td>0.672840</td>
+            <td></td>
+          </tr>
+        </table>
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    <p>&copy; 2024 Parham Moradi. All rights reserved.</p>
+  </footer>
+</body>
+</html>

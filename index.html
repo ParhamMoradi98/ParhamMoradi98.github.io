@@ -1,219 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parham Moradi - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <script src="js/scripts.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parham Moradi - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="js/scripts.js"></script>
 </head>
 <body>
-    <div class="chat-title">
-        <h2>Ask anything about my background from 
-            <span class="highlighted-text">DeepSeek API chatbot</span>
-        </h2>
+  <div class="chat-title">
+    <h2>Ask anything about my background from 
+      <span class="highlighted-text">DeepSeek API chatbot</span>
+    </h2>
+  </div>
+  
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <div class="chat-input-container">
+      <input id="user-input" type="text" placeholder="Ask about my background...">
+      <button id="send-button">
+        <i class="fas fa-globe"></i> Send!
+      </button>
     </div>
-    
-    <div id="chat-container">
-        <div id="chat-messages"></div>
-        <div class="chat-input-container">
-            <input id="user-input" type="text" placeholder="Ask about my background...">
-            <button id="send-button">
-                <i class="fas fa-globe"></i> Send!
-            </button>
-        </div>
-    </div>
-    
+  </div>
+  
+  <div class="wrapper">
     <div class="container">
-        <aside class="sidebar">
-            <img src="github_pic.jpg" alt="Parham Moradi" class="profile-pic">
-            <h2>Parham Moradi</h2>
-            <ul class="social-links">
-                <li><a href="mailto:parham.moradi@uwaterloo.ca">Email</a></li>
-                <li><a href="tel:+16475133618">Phone</a></li>
-                <li><a href="https://www.linkedin.com/in/parham-moradi-132443156/">LinkedIn</a></li>
-                <li><a href="https://github.com/ParhamMoradi98">GitHub</a></li>
+      <aside class="sidebar">
+        <a href="index.html">
+          <img src="github_pic.jpg" alt="Parham Moradi" class="profile-pic">
+        </a>
+        <a href="index.html">
+          <h2>Parham Moradi</h2>
+        </a>
+        <ul class="social-links">
+          <li><a href="mailto:parham.moradi@uwaterloo.ca">Email</a></li>
+          <li><a href="tel:+16475133618">Phone</a></li>
+          <li><a href="https://www.linkedin.com/in/parham-moradi-132443156/">LinkedIn</a></li>
+          <li><a href="https://github.com/ParhamMoradi98">GitHub</a></li>
+        </ul>
+        <div class="cv-section">
+          <a href="Parham_CV.pdf" target="_blank" class="cv-link">Summarized CV</a>
+        </div>
+    
+        <nav class="nav-links">
+          <a href="#about-me">About Me</a>
+          <div class="menu">
+            <a href="#skills">Skills</a>
+            <ul class="submenu">
+              <li><a href="#programming-frameworks">Programming & Frameworks</a></li>
+              <li><a href="#data-ai-techniques">Data & AI Techniques</a></li>
+              <li><a href="#tools-technologies">Tools & Technologies</a></li>
+              <li><a href="#operating-systems">Operating Systems and Subsystems</a></li>
             </ul>
-            <div class="cv-section">
-                <a href="Parham_CV.pdf" target="_blank" class="cv-link">Summarized CV</a>
-            </div>
-            <nav class="nav-links">
-                <a href="#about-me">About Me</a>
-                <div class="menu">
-                    <a href="#skills">Skills</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="#programming-frameworks">Programming & Frameworks</a>
-                            <ul class="submenu-details">
-                                <li><a href="#python">Python</a></li>
-                                <li><a href="#sql">SQL(SQLite, mySQL)</a></li>
-                                <li><a href="#tensorflow">TensorFlow</a></li>
-                                <li><a href="#scikit-learn">scikit-learn</a></li>
-                                <li><a href="#pytorch">PyTorch</a></li>
-                                <li><a href="#pandas">Pandas</a></li>
-                                <li><a href="#seaborn">Seaborn</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#data-ai-techniques">Data & AI Techniques</a>
-                            <ul class="submenu-details">
-                                <li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
-                                <li><a href="#optimization">Optimization</a></li>
-                                <li><a href="#data-modelling">Data Modelling</a></li>
-                                <li><a href="#predictive-ai">Predictive AI</a></li>
-                                <li><a href="#apis">APIs</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#tools-technologies">Tools & Technologies</a>
-                            <ul class="submenu-details">
-                                <li><a href="#docker">Docker</a></li>
-                                <li><a href="#kubernetes">Kubernetes</a></li>
-                                <li><a href="#ci-cd">CI/CD</a></li>
-                                <li><a href="#aws">AWS</a></li>
-                                <li><a href="#git">Git</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#operating-systems">Operating Systems and Subsystems</a>
-                            <ul class="submenu-details">
-                                <li><a href="#ubuntu">Ubuntu</a></li>
-                                <li><a href="#wsl">WSL</a></li>
-                                <li><a href="#windows">Windows</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- <div class="menu">
-                    <a href="#experiences">Experiences</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="#ml-experience">Machine Learning</a>
-                            <ul class="submenu-details">
-                                <li><a href="#ml-api">Building ML API</a></li>
-                                <li><a href="#rainfall-classification">Rainfall Classification</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#data-analysis">Data Analysis</a>
-                            <ul class="submenu-details">
-                                <li><a href="#data-visualization">Data Visualization</a></li>
-                                <li><a href="#data-cleaning">Data Cleaning</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div> -->
-                <div class="menu">
-                    <a href="#projects">Projects</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="#scalable-ml-api">Scalable ML API</a>
-                            <ul class="submenu-details">
-                                <li><a href="#api-design">API Design</a></li>
-                                <li><a href="#dockerization">Dockerization</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#rainfall-classification">Rainfall Classification</a>
-                            <ul class="submenu-details">
-                                <li><a href="#ml-algorithms">ML Algorithms</a></li>
-                                <li><a href="#accuracy">Improving Accuracy</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </aside>
+          </div>
+          <div class="menu">
+            <a href="#projects">Projects</a>
+            <ul class="submenu">
+              <li><a href="thesis/index.html">Thesis project</a></li>
+              <li><a href="#scalable-ml-api">Scalable ML API</a></li>
+              <li><a href="#rainfall-classification">Rainfall Classification</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+      
+      <!-- Main Content -->
+      <main>
+        <section id="about-me">
+          <h2>About Me!</h2>
+          <p>A strategic problem-solver who excels at translating mathematical concepts into practical solutions.</p>
+          <p>A skilled Data Scientist with a strong background in ML, Optimization, Quantitative Analysis, and Mathematical Modeling.</p>
+          <p>
+            <strong>Master's Degree: Management and Data Sciences, University of Waterloo 
+              <a href="thesis/index.html" class="info-button">
+                <i class="fas fa-hand-point-right"></i>
+                <span>More Information</span>
+              </a>
+            </strong>
+            <br>
+            <em>Sept. 2021 - Feb. 2024</em>, Waterloo, Canada
+          </p>
+          <p>
+            <strong>Bachelor's Degree: B.Sc. in Computer Science & B.Sc. in Electrical Engineering, Sharif University of Technology</strong>
+            <br>
+            <em>Sept. 2016 - Sept. 2021</em>, Tehran, Iran
+          </p>
+        </section>
         
-        <!-- Main Content -->
-        <main>
-            <section id="about-me">
-                <h2>About Me!</h2>
-                <p>A strategic problem-solver who excels at translating mathematical concepts into practical solutions.</p>
-                <p>A Skilled Data Scientist with a strong background in ML, Optimization, Quantitative Analysis, and Mathematical Modeling.</p>
-                <p>
-                    <strong>Master's Degree: Management and Data Sciences, University of Waterloo </strong>
-                    <br>
-                    <em>Sept. 2021 - Feb. 2024</em>, Waterloo, Canada
-                </p>
-                <p>
-                    <strong>Bachelor's Degree: B.Sc. in Computer Science & B.Sc. in Electrical Engineering, Sharif University of Technology </strong>
-                    <br>
-                    <em>Sept. 2016 - Sept. 2021</em>, Tehran, Iran
-                </p>
-            </section>
-            
-
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul class="skills-list">
-                    <li>
-                        <strong>Programming & Frameworks:</strong> 
-                        <a href="#python">Python</a>, <a href="#sql">SQL</a>(SQLite, mySQL), <a href="#tensorflow">TensorFlow</a>, 
-                        <a href="#scikit-learn">scikit-learn</a>, <a href="#pytorch">PyTorch</a>, 
-                        <a href="#pandas">Pandas</a>, <a href="#seaborn">Seaborn</a>
-                    </li>
-                    <li>
-                        <strong>Data & AI Techniques:</strong> 
-                        <a href="#reinforcement-learning">Reinforcement Learning</a>, <a href="#optimization">Optimization</a>, 
-                        <a href="#data-modelling">Data Modelling</a>, <a href="#predictive-ai">Predictive AI</a>, <a href="#apis">APIs</a>
-                    </li>
-                    <li>
-                        <strong>Tools & Technologies:</strong> 
-                        <a href="#docker">Docker</a>, <a href="#kubernetes">Kubernetes</a>, 
-                        <a href="#ci-cd">CI/CD</a>, <a href="#sqlite">SQLite</a>, 
-                        <a href="#aws">AWS</a>, <a href="#git">Git</a>
-                    </li>
-                    <li>
-                        <strong>Operating Systems and Subsystems:</strong> 
-                        <a href="#ubuntu">Ubuntu</a>, <a href="#wsl">WSL</a>, <a href="#windows">Windows</a>
-                    </li>
-                </ul>
-            </section>
-            
-            <!-- Cover Letter Section -->
-            <section id="cover-letter">
-                <h2>Cover Letter</h2>
-                <p>I recently graduated from the <strong>University of Waterloo</strong> in <strong>Management and Data Sciences</strong> as a master’s student.</p>
-                <p>My master's thesis is about <strong>Data Science</strong>, <strong>Machine Learning (ML)</strong>, and <strong>Artificial Intelligence (AI)</strong>. </p>
-                <p>Its title is “<strong>Data-Driven Patient Scheduling with AI and Reinforcement Learning</strong>.”</p>
-                <p>The main goal of that is to infer the intentions used by the decision-makers, who schedule patients, based on their historical decisions. To achieve this, I first developed a <strong>mathematical model</strong> that captures the complexities of scheduling (<strong>Data Modelling</strong>).</p>
-                <p>To check the robustness of the method, I implemented a <strong>simulation</strong> and built a <strong> AI-based</strong> patient scheduler to test hypotheses, improving the <strong>decision-makeing process </strong>  and total waiting times by 30%. (<strong>Predictive AI</strong>, <strong>Data Science</strong>).</p>
-                <p>Furthermore, I analyzed <strong> Canadian hospitals datasets</strong> using <strong>Python</strong> and <strong>Pandas</strong>, and successfully estimated the <strong>cost function</strong>. I also predicted the next states of the system using <strong>predictive analytics</strong> and <strong>AI</strong>. I worked with <strong>SQL</strong> as a database for my project (<strong>SQL, ML</strong>, <strong>Data Analytics</strong>).</p>
-                <p>This thesis showcased my <strong>Quantitative Data Analysis</strong>, <strong>Machine Learning skills</strong>, <strong>AI</strong>, <strong>Model Optimization</strong>, <strong>Predictive Analytics</strong>, <strong>Forecasting</strong>, <strong>Data Visualization</strong>, and <strong>Git</strong>.</p>
-                <p>Additionally, I earned <strong>IBM's Machine Learning with Python Certificate</strong>, learning some <strong>ML techniques</strong> and using Python libraries such as <strong>TensorFlow</strong>, <strong>PyTorch</strong>, and <strong>Pandas</strong>.</p>
-                <p>I also built a <strong>Scalable Machine Learning API</strong>, enabling non-expert users to upload datasets, train models, save best-performing models, and receive predictions and evaluation scores. I used <strong>Docker</strong> files to ensure seamless local deployment and developed <strong>Kubernetes deployment and service YAML files</strong>.</p>
-            </section>
-            
-            
-
-            <!-- <section id="experiences">
-                <h2>Experiences</h2>
-                <ul>
-                    <li id="docker-kubernetes"><strong>Building a Scalable Machine Learning API:</strong> 
-                        Used Docker and Kubernetes to deploy a user-friendly ML API for non-experts.</li>
-                    <li id="tensorflow-pytorch"><strong>Rainfall Classification:</strong> 
-                        Used TensorFlow and PyTorch for machine learning algorithms achieving 80% accuracy.</li>
-                </ul>
-            </section> -->
-
-            <section id="projects">
-                <h2>Projects</h2>
-                <ul>
-                    <li><strong>Scalable Machine Learning API:</strong> User-friendly Auto ML API for non-experts to train models and save best-performing models.</li>
-                    <li><strong>Rainfall Classification:</strong> Analyzed rainfall patterns and achieved over 80% accuracy using five ML algorithms.</li>
-                </ul>
-            </section>
-        </main>
+        <section id="projects">
+          <h2>Projects</h2>
+          <ul>
+            <li>
+              <p>
+                <strong>Thesis project:</strong> Explore my master’s thesis work on data-driven patient scheduling with AI and reinforcement learning. 
+                <a href="thesis/index.html" class="info-button">
+                  <i class="fas fa-hand-point-right"></i>
+                  <span>More Information</span>
+                </a>
+              </p>
+            </li>
+            <li>
+              <strong>Scalable Machine Learning API:</strong> User-friendly Auto ML API for non-experts to train models and save best-performing models.
+              <a href="https://github.com/ParhamMoradi98/FastAPI--ML--Microservice" class="info-button">
+                <i class="fas fa-hand-point-right"></i>
+                <span>GitHub Repo</span>
+              </a>
+            </li>
+            <li>
+              <strong>Rainfall Classification:</strong> Analyzed rainfall patterns and achieved over 80% accuracy using five ML algorithms.
+              <a href="IBM/index.html" class="info-button">
+                <i class="fas fa-hand-point-right"></i>
+                <span>More Information</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        
+        <section id="skills">
+          <h2>Skills</h2>
+          <ul class="skills-list">
+            <li id="programming-frameworks">
+              <strong>Programming & Frameworks:</strong> 
+              Python, SQL, TensorFlow, scikit-learn, PyTorch, Pandas, Seaborn
+            </li>
+            <li id="data-ai-techniques">
+              <strong>Data & AI Techniques:</strong> 
+              Transformers, NLP, Chunking, RL, Optimization, Data Modeling, Predictive AI
+            </li>
+            <li id="tools-technologies">
+              <strong>Tools & Technologies:</strong> 
+              Langchain, Heroku, Flask, Faiss, Docker, Kubernetes, CI/CD, SQLite
+            </li>
+            <li id="operating-systems">
+              <strong>Operating Systems and Subsystems:</strong> 
+              Ubuntu, WSL, Windows
+            </li>
+          </ul>
+        </section>
+        
+        <!-- Optional Cover Letter Section (currently commented out) -->
+        <!--
+        <section id="cover-letter">
+          <h2>Cover Letter</h2>
+          <p>... Cover letter content ...</p>
+        </section>
+        -->
+        
+      </main>
     </div>
-
+    
     <footer>
-        <p>&copy; 2024 Parham Moradi. All rights reserved.</p>
+      <p>&copy; 2024 Parham Moradi. All rights reserved.</p>
     </footer>
+  </div>
 </body>
 </html>

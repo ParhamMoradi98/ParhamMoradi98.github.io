@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parham Moradi - Thesis Project</title>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../thesis/thesis_styles.css"> <!-- NEW CSS FILE -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <script src="../js/scripts.js"></script>
+    </head>
+<body>
+    <div class="chat-title">
+        <h2>Ask anything about my background from 
+            <span class="highlighted-text">DeepSeek API chatbot</span>
+        </h2>
+    </div>
+    
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <div class="chat-input-container">
+            <input id="user-input" type="text" placeholder="Ask about my background...">
+            <button id="send-button">
+                <i class="fas fa-globe"></i> Send!
+            </button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <a href="../index.html">
+                <img src="../github_pic.jpg" alt="Parham Moradi" class="profile-pic">
+            </a>
+            <a href="../index.html">
+                <h2>Parham Moradi</h2>
+            </a>
+            <ul class="social-links">
+                <li><a href="mailto:parham.moradi@uwaterloo.ca">Email</a></li>
+                <li><a href="tel:+16475133618">Phone</a></li>
+                <li><a href="https://www.linkedin.com/in/parham-moradi-132443156/">LinkedIn</a></li>
+                <li><a href="https://github.com/ParhamMoradi98">GitHub</a></li>
+            </ul>
+            <div class="cv-section">
+                <a href="../Parham_CV.pdf" target="_blank" class="cv-link">Summarized CV</a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html#about-me">About Me</a>
+                <div class="menu">
+                    <a href="../index.html#skills">Skills</a>
+                    <ul class="submenu">
+                        <li><a href="../index.html#programming-frameworks">Programming & Frameworks</a></li>
+                        <li><a href="../index.html#data-ai-techniques">Data & AI Techniques</a></li>
+                        <li><a href="../index.html#tools-technologies">Tools & Technologies</a></li>
+                        <li><a href="../index.html#operating-systems">Operating Systems and Subsystems</a></li>
+                    </ul>
+                </div>
+                <div class="menu">
+                    <a href="../index.html#projects">Projects</a>
+                    <ul class="submenu">
+                        <li><a href="index.html"><strong>Thesis Project</strong></a></li>
+                        <li><a href="../index.html#scalable-ml-api">Scalable ML API</a></li>
+                        <li><a href="../index.html#rainfall-classification">Rainfall Classification</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        
+        
+        <main>
+            <section id="thesis-summary">
+                <h2>Thesis Project Summary</h2>
+
+                <p>
+                    My master's thesis focuses on <strong>Data-Driven Patient Scheduling with AI and Reinforcement Learning</strong>, where I inferred 
+                    decision-makers’ policies and patterns from historical data. It involves estimating the cost function from the expert's 
+                    actions and predicting their future optimal actions. I developed skills in <strong>Quantitative Data Analytics, Machine Learning (ML), 
+                    Reinforcement Learning (RL), Hypotheses Testing, Optimization, Python, Pandas, Scikit-learn, Predictive AI, Git, TensorFlow, and PyTorch</strong>.
+                </p>
+
+                <h3>1. <strong>What Problem I Solved</strong></h3>
+                <p>
+                    I developed and validated <strong>inverse optimization approaches</strong> (Riccati and Hamiltonian methods) to estimate key 
+                    <strong>cost parameters</strong> (rejection and waiting costs) in hospital scheduling decisions. This enabled the reconstruction of 
+                    decision-making processes from observed expert actions. To achieve this, I used <strong>algebraic equations, hypothesis testing, statistical power, and significance testing (α)</strong> 
+                    to identify the underlying **Reinforcement Learning (RL) policy** of decision-makers.
+                </p>
+
+                <h3>2. <strong>Why This Problem Matters</strong></h3>
+                <p>
+                    Efficient patient scheduling is critical for reducing <strong>waiting times</strong> and minimizing <strong>rejections</strong>, directly impacting hospital 
+                    efficiency and patient care. Understanding decision-making patterns allows for better <strong>resource allocation</strong> and operational improvements.
+                </p>
+
+                <h3>3. <strong>How My Results Lead to an Improvement</strong></h3>
+                <ul>
+                    <li><strong>Scalability & Accuracy:</strong> The <strong>Riccati approach</strong> performed better for short time horizons, while the <strong>Hamiltonian approach</strong> was more effective for longer time horizons.</li>
+                    <li><strong>Reduction in Estimation Errors:</strong> Extending the time horizon improved cost parameter estimation accuracy.</li>
+                    <li><strong>Counterfactual Analysis:</strong> Using optimized parameters in an alternative scheduling model resulted in <strong>up to 62% cost reduction</strong> for one hospital and <strong>32% for another</strong>, proving efficiency gains.</li>
+                </ul>
+
+                <h3>4. <strong>Skills I Gained</strong></h3>
+                <ul>
+                    <li><strong>Optimization & Inverse Reinforcement Learning:</strong> Developed mathematical models to infer decision-making costs.</li>
+                    <li><strong>Statistical Analysis & Sensitivity Testing:</strong> Evaluated the robustness of cost estimations under different conditions.</li>
+                    <li><strong>Data Cleaning & Management:</strong> Processed hospital datasets containing <strong>80+ columns</strong> by performing <strong>dimensionality reduction</strong>, merging redundant classes, and filtering out insignificant data using hypothesis testing.</li>
+                    <li><strong>Simulation & Data-Driven Modeling:</strong> Designed a simulation framework to generate scheduling decisions and assess model performance.</li>
+                    <li><strong>Python & Numerical Computing:</strong> Used <strong>Python, NumPy, and Scikit-learn</strong> for solving optimization problems and analyzing real hospital datasets.</li>
+                </ul>
+            </section>
+
+            <section id="thesis-results">
+                <h2>Scalability Analysis</h2>
+                <p>The **Hamiltonian approach** scales better as data increases, but its convergence is slower. When **data is under 500 days**, the **Riccati approach converges faster** due to its **quadratic cost function**, while for **larger datasets**, the Hamiltonian approach is preferable.</p>
+
+               <div class="grid-container">
+    <div>
+        <img src="../thesis/results/estimation_err_rej_ricc.jpg" alt="Estimation Error (Rejection Cost) - Riccati">
+        <p class="fig-caption">Figure 1: Riccati approach estimation error for rejection cost.</p>
+    </div>
+    <div>
+        <img src="../thesis/results/estimation_err_rej_ham.jpg" alt="Estimation Error (Rejection Cost) - Hamiltonian">
+        <p class="fig-caption">Figure 2: Hamiltonian approach estimation error for rejection cost.</p>
+    </div>
+    <div>
+        <img src="../thesis/results/estimation_err_wait_ham.jpg" alt="Estimation Error (Waiting Cost) - Hamiltonian">
+        <p class="fig-caption">Figure 3: Hamiltonian approach estimation error for waiting cost.</p>
+    </div>
+    <div>
+        <img src="../thesis/results/estimation_err_rej_ricc.jpg" alt="Cost Reduction Analysis">
+        <p class="fig-caption">Figure 4: Riccati approach performance on rejection cost.</p>
+    </div>
+</div>
+
+
+        <h2><strong>Cost Reduction with Optimized Parameters</strong></h2>
+                <p>
+                    Counterfactual analysis was used to assess cost reductions when optimal scheduling parameters were applied. 
+                    The results demonstrated that hospital operational costs could be reduced significantly.
+                </p>
+
+                <table border="1">
+                    <tr>
+                        <th>Hospital</th>
+                        <th>Riccati Approach</th>
+                        <th>Hamiltonian Approach</th>
+                    </tr>
+                    <tr>
+                        <td>Hospital 1</td>
+                        <td>32%</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital 2</td>
+                        <td>29%</td>
+                        <td>62%</td>
+                    </tr>
+                </table>
+                <p><strong>Table 1:</strong> Percentage improvement in total costs for Hospitals 1 and 2 using Riccati and Hamiltonian approaches.</p>
+
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Parham Moradi. All rights reserved.</p>
+    </footer>
+</body>
+</html>

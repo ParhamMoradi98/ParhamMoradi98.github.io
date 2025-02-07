@@ -1,27 +1,41 @@
-/* General Styles */
-body {
+/* Global Styles */
+html, body {
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #d3d3d3; /* Light grey background */
     color: #333;
 }
 
-/* Layout */
+/* Wrapper to hold container and footer */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Layout for Sidebar and Main Content */
 .container {
     display: flex;
-    height: 100vh;
+    flex: 1;  /* Grow to fill available space */
 }
 
 /* Sidebar */
 .sidebar {
-    width: 450px;
-    background: #2c3e50;
-    color: #ecf0f1;
+    width: 300px;  /* Reduced sidebar width from 450px to 300px */
+    background: #2c3e50;      /* Dark blue-gray background */
+    color: #ecf0f1;           /* Light text color */
     padding: 20px;
     text-align: center;
-    position: relative;
+    /* Remove sticky/fixed positioning so it flows naturally */
+    display: flex;
+    flex-direction: column;
+    /* Optionally, you can uncomment the next line to force the sidebar
+       to stretch vertically to match the container's height if desired */
+    /* flex: 1; */
 }
 
+/* Sidebar Content */
 .sidebar .profile-pic {
     width: 200px;
     height: 200px;
@@ -35,6 +49,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Sidebar Social Links */
 .sidebar .social-links {
     list-style: none;
     padding: 0;
@@ -54,6 +69,7 @@ body {
     text-decoration: underline;
 }
 
+/* Sidebar Navigation Links */
 .sidebar .nav-links {
     margin-top: 20px;
     text-align: left;
@@ -107,7 +123,6 @@ body {
     background: #1abc9c;
 }
 
-/* Submenu Details Styles */
 .menu .submenu-details {
     display: none;
     position: absolute;
@@ -130,7 +145,6 @@ body {
     background: #1abc9c;
 }
 
-/* Hover Functionality */
 .menu:hover .submenu {
     display: block;
 }
@@ -141,7 +155,7 @@ body {
 
 /* Main Content */
 main {
-    flex-grow: 1;
+    flex: 1;
     padding: 20px;
     overflow-y: auto;
     background-color: #f4f4f4; /* Maintain original background */
@@ -170,34 +184,49 @@ footer {
     font-size: 0.8rem;
 }
 
-/* CV Section */
-.cv-section {
-    margin-top: 20px;
-    text-align: center;
-    padding-top: 10px;
-    border-top: 1px solid #ecf0f1;
+/* Info Button */
+a:visited {
+    color: inherit !important;
 }
 
-.cv-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #ecf0f1;
-}
-
-.cv-link {
-    display: inline-block;
-    color: #1abc9c;
+.info-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 9999px; /* Fully rounded */
+    padding: 6px 10px;       /* Smaller padding */
+    font-size: 12px;         /* Smaller text */
+    color: #333;
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border: 2px solid #1abc9c;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 8px;
 }
 
-.cv-link:hover {
-    background: #1abc9c;
-    color: #ecf0f1;
+.info-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+}
+
+/* Adjust the icon size and spacing */
+.info-button i {
+    margin-right: 6px;
+    font-size: 14px;
+    transform-origin: 70% 70%;
+    animation: wave 2s infinite;
+}
+
+/* Waving hand animation */
+@keyframes wave {
+    0%   { transform: rotate(0deg); }
+    15%  { transform: rotate(14deg); }
+    30%  { transform: rotate(-8deg); }
+    40%  { transform: rotate(14deg); }
+    50%  { transform: rotate(-4deg); }
+    60%  { transform: rotate(10deg); }
+    70%  { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
 }
 
 /* Chat Box */
@@ -264,15 +293,14 @@ footer {
     transition: all 0.2s ease-in-out;
 }
 
-/* Add slight hover effect */
 #send-button:hover {
     background-color: #f3f3f3;
 }
 
-/* Button icon */
 #send-button i {
     font-size: 18px;
 }
+
 /* Chat Title Styling */
 .chat-title {
     text-align: center;
@@ -295,5 +323,32 @@ footer {
     background: white; /* Keep contrast */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Elegant shadow */
 }
+/* CV Section */
+.cv-section {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #ecf0f1;
+}
 
+.cv-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ecf0f1;
+}
 
+.cv-link {
+    display: inline-block;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #1abc9c;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cv-link:hover {
+    background: #1abc9c;
+    color: #ecf0f1;
+}

@@ -1,0 +1,218 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+a:visited {
+    color: inherit !important;
+}
+
+/* Top-level sidebar links should be dark */
+.sidebar .nav-links > a,
+.sidebar .menu > a {
+    color: #333 !important;
+}
+
+/* Submenu items should keep the previous bright blue */
+.sidebar .nav-links .submenu a,
+.sidebar .nav-links .submenu-details a {
+    color: #007bff !important;
+}
+
+/* Optional: Maintain bright blue hover on submenu items */
+.sidebar .nav-links .submenu a:hover,
+.sidebar .nav-links .submenu-details a:hover {
+    color: #0056b3 !important;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: #333 ;  /* Ensures default sidebar text is dark */
+}
+
+.sidebar img.profile-pic {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.sidebar .social-links li a[href^="mailto:"],
+.sidebar .social-links li a[href^="tel:"] {
+    color: #111212 !important;
+    font-weight: bold !important;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Social Links in Sidebar */
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0056b3; /* Darker blue */
+}
+
+/* Navigation Links in Sidebar */
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* Dark text */
+    font-weight: normal;
+}
+
+.nav-links a:hover {
+    color: #0056b3; /* Hover effect with darker blue */
+}
+
+/* Chatbox Styling */
+.chat-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#chat-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Thesis Summary */
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+h3 {
+    color: #007bff;
+    font-size: 20px;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Grid Layout for Results */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.grid-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-container img {
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* Smaller image size */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.fig-caption {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
