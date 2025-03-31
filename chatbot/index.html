@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parham Moradi - Video Demonstrations</title>
+
+  <!-- Optional Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Combined CSS (keeping all original links/info, removing thesis text) -->
+  <style>
+    /* Global Styles */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d3d3d3; /* Light grey background */
+      color: #333;
+    }
+
+    /* Wrapper to hold container and footer */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Layout for Sidebar and Main Content */
+    .container {
+      display: flex;
+      flex: 1;  /* Grow to fill available space */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 300px;             /* Dark blue-gray background */
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid #34495e;
+    }
+
+    /* Sidebar: Profile Pic */
+    .sidebar .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid #ecf0f1;
+      object-fit: cover;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Sidebar: Social Links */
+    .sidebar .social-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar .social-links li {
+      margin: 10px 0;
+    }
+
+    .sidebar .social-links li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar .social-links li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sidebar: CV Section */
+    .cv-section {
+      margin-top: 20px;
+      text-align: center;
+      border-top: 1px solid #ecf0f1;
+      padding-top: 15px;
+    }
+
+    .cv-link {
+      display: inline-block;
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border: 2px solid #1abc9c;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .cv-link:hover {
+      background: #1abc9c;
+      color: #ecf0f1;
+    }
+
+    /* Sidebar: Navigation Links */
+    .nav-links {
+      margin-top: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    .nav-links a {
+      display: block;
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      background: #34495e;
+      padding-left: 10px;
+    }
+
+    /* Menu and Submenu Styles */
+    .menu {
+      position: relative;
+    }
+
+    .menu .submenu {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: #34495e;
+      width: 200px;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu .submenu li {
+      margin: 0;
+    }
+
+    .menu .submenu a {
+      color: #ecf0f1;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .menu .submenu a:hover {
+      background: #1abc9c;
+    }
+
+    .menu .submenu-details {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: #2c3e50;
+      width: 200px;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu .submenu-details a {
+      color: #ecf0f1;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .menu .submenu-details a:hover {
+      background: #1abc9c;
+    }
+
+    .menu:hover .submenu {
+      display: block;
+    }
+
+    .submenu li:hover .submenu-details {
+      display: block;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f4f4f4;
+    }
+
+    main h2 {
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      line-height: 1.6;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* Video styling */
+    video {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background: #000;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #34495e;
+      color: #ecf0f1;
+      font-size: 0.8rem;
+    }
+
+    /* Info Button */
+    a:visited {
+      color: inherit !important;
+    }
+
+    .info-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 9999px; 
+      padding: 6px 10px;       
+      font-size: 12px;        
+      color: #333;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .info-button:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.02);
+    }
+
+    .info-button i {
+      margin-right: 6px;
+      font-size: 14px;
+      transform-origin: 70% 70%;
+      animation: wave 2s infinite;
+    }
+
+    @keyframes wave {
+      0%   { transform: rotate(0deg); }
+      15%  { transform: rotate(14deg); }
+      30%  { transform: rotate(-8deg); }
+      40%  { transform: rotate(14deg); }
+      50%  { transform: rotate(-4deg); }
+      60%  { transform: rotate(10deg); }
+      70%  { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Container: Sidebar + Main -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="../index.html">
+          <img src="../github_pic.jpg" alt="Parham Moradi" class="profile-pic" />
+        </a>
+        <a href="../index.html">
+          <h2>Parham Moradi</h2>
+        </a>
+        
+        <!-- Social Links -->
+        <ul class="social-links">
+          <li><a href="mailto:parham.moradi@uwaterloo.ca">Email</a></li>
+          <li><a href="tel:+16475133618">Phone</a></li>
+          <li><a href="https://www.linkedin.com/in/parham-moradi-132443156/">LinkedIn</a></li>
+          <li><a href="https://github.com/ParhamMoradi98">GitHub</a></li>
+        </ul>
+
+        <!-- CV Link -->
+        <div class="cv-section">
+          <a href="../Parham_CV.pdf" target="_blank" class="cv-link">Summarized CV</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+          <a href="../index.html#about-me">About Me</a>
+          <div class="menu">
+            <a href="../index.html#skills">Skills</a>
+            <ul class="submenu">
+              <li><a href="../index.html#programming-frameworks">Programming &amp; Frameworks</a></li>
+              <li><a href="../index.html#data-ai-techniques">Data &amp; AI Techniques</a></li>
+              <li><a href="../index.html#tools-technologies">Tools &amp; Technologies</a></li>
+              <li><a href="../index.html#operating-systems">Operating Systems and Subsystems</a></li>
+            </ul>
+          </div>
+          <div class="menu">
+            <a href="../index.html#projects">Projects</a>
+            <ul class="submenu">
+              <li><a href="../index.html#scalable-ml-api">Scalable ML API</a></li>
+              <li><a href="../index.html#rainfall-classification">Rainfall Classification</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main>
+        <p>
+            <strong>YouTube API Chatbot:</strong> A chatbot to automatically extract and process
+            video content from any public channel, using efficient information retrieval.
+            Extracted all video titles, descriptions, and captions from a given YouTube channel URL 
+            using the YouTube Data API.
+          </p>
+        <!-- 1) Backend Demonstration -->
+        <h2>Backend Demonstration</h2>
+        <video controls>
+          <source src="Backend.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p>
+          This video explains how to run the backend. It covers the installation process,
+          configuration steps, and how to start the server for proper operation.
+        </p>
+
+        <!-- 2) Chatbot Functionality -->
+        <h2>Chatbot Functionality</h2>
+        <video controls>
+          <source src="Chatbot.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p>
+          This video shows how the chatbot is working. It demonstrates the interaction
+          flow and key features of the chatbot interface.
+        </p>
+
+        <!-- YouTube API Chatbot Explanation (new text added) -->
+      
+        <ul>
+          <li>Built an intelligent chatbot to automatically process video content from any public channel.</li>
+          <li>Answered user queries about speakers, key topics, and specific mentions across videos.</li>
+          <li>Deployed a personalized version to answer questions about my projects and experience.</li>
+          <li>Developed the backend using Flask, deployed on Heroku for scalable hosting.</li>
+          <li>Integrated LangChain for retrieval-augmented generation; used Hugging Face Transformers for NLP tasks.</li>
+          <li>Optimized semantic search and document similarity with FAISS, deployed via Hugging Face Transfer.</li>
+          <li>Use cases: educational platforms, news summarization, and efficient browsing of technical content.</li>
+        </ul>
+        <!-- Link to GitHub Repo -->
+        <a href="https://github.com/ParhamMoradi98/chatbot_passage" class="info-button">
+          <i class="fas fa-hand-point-right"></i>
+          The GitHub repository for this project is available here.
+        </a>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Parham Moradi. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
