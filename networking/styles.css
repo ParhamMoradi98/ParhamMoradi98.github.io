@@ -1,0 +1,171 @@
+/* Modern Dark Theme Styles */
+:root {
+    --bg-primary: #191919;
+    --bg-secondary: #252525;
+    --text-primary: #E0E0E0;
+    --text-secondary: #B0B0B0;
+    --accent: #64FFDA;
+    --hover-color: #80CBC4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.info-item i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+.content-block {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.link-item:last-child {
+    margin-bottom: 0;
+}
+
+.career-focus p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.current-role ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+}
+
+.current-role li {
+    margin-bottom: 0.5rem;
+}
+
+.current-role a {
+    color: var(--accent);
+}
+
+.current-role a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+.education-item {
+    margin-bottom: 2rem;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-period {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.education-item p {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+} 
