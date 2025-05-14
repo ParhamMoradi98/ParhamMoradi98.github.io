@@ -156,6 +156,37 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
+.cv-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: rgba(100, 255, 218, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+}
+
+.cv-button i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.cv-button a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.cv-button a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 1rem;
